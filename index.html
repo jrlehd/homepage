@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정기동 | Game Developer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        line: '#e5e7eb',
+                        subtle: '#f9fafb'
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome (최소한의 심볼용) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 깔끔한 직각 스타일 및 스크롤바 */
+        * {
+            border-radius: 0px !important;
+        }
+        /* [조정 위치 1] 네비게이션 클릭 시 스크롤이 멈추는 상단 여백
+           * 1rem = 16px 기준입니다.
+           * 1rem보다 작게 하려면 px 단위로 직접 지정하시면 편리합니다 (예: 0px, 8px, 12px 등). */
+        html {
+            scroll-padding-top: 0px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffffff;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+        /* 인쇄 최적화 */
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 font-sans min-h-screen selection:bg-neutral-900 selection:text-white antialiased">
+
+    <!-- 최상단 헤더 -->
+    <header class="border-b border-neutral-200">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-xl font-bold tracking-tight text-neutral-950">gidong.</a>
+                <span class="text-xs tracking-wider text-neutral-400 font-medium uppercase hidden sm:inline">DEVELOPER PORTFOLIO / RESUME</span>
+            </div>
+            
+            <div class="flex items-center space-x-3 no-print">
+                <button onclick="window.print()" class="px-3 py-1.5 border border-neutral-300 hover:border-neutral-900 text-xs text-neutral-700 hover:text-neutral-950 transition-colors flex items-center gap-1.5">
+                    <i class="fa-solid fa-print text-[11px]"></i>
+                    <span>인쇄 / PDF 저장</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 컨테이너 -->
+    <main class="max-w-5xl mx-auto px-6 pt-12 pb-24">
+        
+        <!-- 프로필 & 소개 섹션 (첨부 이미지 형태) -->
+        <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start pb-12">
+            <!-- 좌측: 인적사항 및 소개글 -->
+            <div class="md:col-span-8 space-y-6">
+                <div class="text-xs font-semibold tracking-wider text-neutral-500 uppercase">
+                    GAME CLIENT · UNITY · ENGINE PROGRAMMING
+                </div>
+
+                <div class="space-y-1">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-neutral-950 tracking-tight flex items-baseline gap-3">
+                        정기동
+                        <span class="text-base sm:text-lg font-normal text-neutral-400 tracking-normal">Jung Gidong</span>
+                    </h1>
+                </div>
+
+                <div class="space-y-2 pt-2">
+                    <h2 class="text-xl sm:text-2xl font-bold text-neutral-900 leading-snug">
+                        플레이어에게 깊은 몰입감을 전달하며,<br />
+                        끝까지 집요하게 완성하는 게임 개발자.
+                    </h2>
+                    <p class="text-neutral-600 text-sm sm:text-base leading-relaxed pt-1">
+                        Unity C# 기반의 클라이언트 개발과 물리·로직 최적화에 집중합니다.<br class="hidden sm:inline" />
+                        파이프라인 자동화와 데이터 무결성을 검증하며 견고한 게임 시스템을 구축합니다.
+                    </p>
+                </div>
+
+                <!-- 이메일 & 빠른 링크 -->
+                <div class="pt-1 flex flex-wrap items-center gap-4 text-xs sm:text-sm">
+                    <a href="mailto:kantjgd@gmail.com" class="text-neutral-900 font-medium hover:underline flex items-center gap-1">
+                        <span>kantjgd@gmail.com</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                    <span class="text-neutral-300">|</span>
+                    <a href="https://github.com/jrlehd" target="_blank" rel="noopener noreferrer" class="text-neutral-700 hover:text-neutral-950 flex items-center gap-1">
+                        <i class="fa-brands fa-github text-sm"></i>
+                        <span>github.com/jrlehd</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- 키워드 태그 -->
+                <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="px-2.5 py-1 text-xs border border-neutral-200 text-neutral-600 bg-neutral-50">클라이언트 최적화</span>
+                    <span class="px-2.5 py-1 text-xs border border-neutral-200 text-neutral-600 bg-neutral-50">Unity URP</span>
+                    <span class="px-2.5 py-1 text-xs border border-neutral-200 text-neutral-600 bg-neutral-50">데이터 파이프라인</span>
+                    <span class="px-2.5 py-1 text-xs border border-neutral-200 text-neutral-600 bg-neutral-50">2개월 완성 스프린트</span>
+                </div>
+            </div>
+
+            <!-- 우측: 프로필 이미지 (직각, 모노톤 스타일) -->
+            <div class="md:col-span-4 flex justify-start md:justify-end">
+                <div class="w-48 sm:w-56 aspect-[3/4] border border-neutral-200 bg-neutral-100 overflow-hidden shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" 
+                         alt="정기동 프로필 사진" 
+                         class="w-full h-full object-cover grayscale contrast-125" />
+                </div>
+            </div>
+        </section>
+
+        <!-- 네비게이션 탭 바 (설명 밑 하단에 위치, 첨부 이미지 구조) -->
+        <nav class="sticky top-0 bg-white/95 backdrop-blur-sm z-40 border-y border-neutral-200 py-3.5 mb-14 no-print">
+            <div class="flex items-center justify-between text-xs sm:text-sm">
+                <div class="flex items-center space-x-6 sm:space-x-8 font-medium">
+                    <a href="#about" class="nav-link text-neutral-500 hover:text-neutral-950 transition-colors py-1 inline-block" data-target="about">자기소개</a>
+                    <a href="#project" class="nav-link text-neutral-500 hover:text-neutral-950 transition-colors py-1 inline-block" data-target="project">프로젝트</a>
+                    <a href="#skills" class="nav-link text-neutral-500 hover:text-neutral-950 transition-colors py-1 inline-block" data-target="skills">기술</a>
+                    <a href="#education" class="nav-link text-neutral-500 hover:text-neutral-950 transition-colors py-1 inline-block" data-target="education">교육</a>
+                </div>
+                <div class="text-xs text-neutral-400 hidden sm:block">
+                    경험으로 설명합니다.
+                </div>
+            </div>
+        </nav>
+
+        <!-- 섹션 00: 자기소개 (이미지 구조: 좌측 소제목+설명문구 / 우측 본문) -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-20 pb-16 border-b border-neutral-200">
+            <div class="md:col-span-4 space-y-3">
+                <span class="text-xs text-neutral-400 font-mono tracking-wider">00 / ABOUT ME</span>
+                <h3 class="text-2xl font-extrabold text-neutral-950">자기소개</h3>
+                <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed pt-2">
+                    문제를 이해하고,<br />
+                    사용할 수 있는 결과물로.
+                </p>
+            </div>
+            <div class="md:col-span-8 text-sm text-neutral-700 leading-relaxed space-y-4">
+                <p>
+                    직접 만든 게임과 기능을 사용자에게 전달하고 피드백을 기반으로 개선해 나가는 과정에서 가장 큰 보람을 느끼는 클라이언트 프로그래머 <strong>정기동</strong>입니다. Unity C# 기반의 엔진 프로그래밍과 코어 게임플레이 로직 구현에 집중하고 있으며, 기획 의도가 플레이어의 화면에 부드럽게 구현되도록 최적화와 아키텍처에 깊은 관심을 쏟고 있습니다.
+                </p>
+                <p>
+                    낯선 기술적 장애물이나 프레임 드랍 문제를 만나면 프로파일러와 원인 분석을 통해 문제를 정의하고 해결 방향을 설계합니다. 2개월의 스프린트 동안 대규모 전투 시 가비지 컬렉션 부하를 0%로 통제하는 제네릭 오브젝트 풀러를 구축하고, 기획 데이터 파이프라인 자동화 및 세이브 데이터 무결성을 보장하는 SQL 트랜잭션을 적용했습니다.
+                </p>
+            </div>
+        </section>
+
+        <!-- 섹션 01: 프로젝트 (이미지 구조: 좌측 소제목+설명 / 우측 프로젝트 상세+슬라이더) -->
+        <section id="project" class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-16 pb-16 border-b border-neutral-200">
+            <div class="md:col-span-4 space-y-3">
+                <span class="text-xs text-neutral-400 font-mono tracking-wider">01 / WORK</span>
+                <h3 class="text-2xl font-extrabold text-neutral-950">프로젝트</h3>
+                <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed pt-2">
+                    직접 만든 프로젝트와<br />
+                    해결해 온 문제들.
+                </p>
+            </div>
+
+            <div class="md:col-span-8 space-y-8">
+                <!-- 프로젝트 헤더 -->
+                <div class="space-y-2 border-b border-neutral-100 pb-4">
+                    <div class="flex items-center justify-between text-xs font-mono text-neutral-400">
+                        <span>01 / Action RPG · Client</span>
+                        <span>2026.07 — 현재 (개발 기간 2개월)</span>
+                    </div>
+                    <div class="flex items-baseline justify-between pt-1">
+                        <h4 class="text-2xl font-bold text-neutral-950 tracking-tight">Project Aetheria</h4>
+                        <a href="https://github.com/jrlehd" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-neutral-700 hover:text-neutral-950 inline-flex items-center gap-1">
+                            <span>GitHub 바로가기</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                    <p class="text-xs sm:text-sm text-neutral-500">
+                        대표 프로젝트 · 액션 RPG 핵심 전투 및 SQLite 기반 인벤토리 시스템
+                    </p>
+                    <div class="text-xs text-neutral-600 font-medium pt-1">
+                        1인 개발 (기획·프로토타이핑·클라이언트 로직·최적화)
+                    </div>
+                </div>
+
+                <!-- 메인 미디어 슬라이더 (비디오 1개 + 스크린샷 3개) -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-neutral-500">인게임 시연 미디어 (동영상 및 스냅샷)</span>
+                        <div class="flex items-center space-x-2">
+                            <button id="prevBtn" class="px-2.5 py-1 border border-neutral-300 hover:border-neutral-900 text-neutral-700 hover:text-neutral-950 transition">이전</button>
+                            <span id="slideCounter" class="px-1 text-neutral-500 font-mono text-xs">1 / 4</span>
+                            <button id="nextBtn" class="px-2.5 py-1 border border-neutral-300 hover:border-neutral-900 text-neutral-700 hover:text-neutral-950 transition">다음</button>
+                        </div>
+                    </div>
+
+                    <div class="border border-neutral-200 bg-neutral-950 relative overflow-hidden">
+                        <div id="sliderTrack" class="flex transition-transform duration-300 ease-in-out aspect-video">
+                            <!-- 1. 비디오 슬라이드 -->
+                            <div class="min-w-full h-full relative bg-black flex items-center justify-center">
+                                <video id="slideVideo" class="w-full h-full object-cover" loop playsinline muted>
+                                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                                    <button id="videoToggleBtn" class="px-3.5 py-1.5 bg-white text-neutral-950 text-xs font-semibold hover:bg-neutral-200 transition">
+                                        <span id="videoStatusText">동영상 재생 / 일시정지</span>
+                                    </button>
+                                </div>
+                                <div class="absolute bottom-0 left-0 right-0 bg-neutral-950/80 px-3 py-2 text-xs text-neutral-300 border-t border-neutral-800 flex justify-between items-center">
+                                    <span>[비디오] 보스 전투 시퀀스 및 이펙트 최적화 시연</span>
+                                    <span class="font-mono text-neutral-400">VIDEO 01</span>
+                                </div>
+                            </div>
+
+                            <!-- 2. 스크린샷 1 -->
+                            <div class="min-w-full h-full relative bg-neutral-900">
+                                <img src="https://placehold.co/1280x720/171717/ffffff?text=Screenshot+01:+Dungeon+Scene" alt="던전 스크린샷" class="w-full h-full object-cover" />
+                                <div class="absolute bottom-0 left-0 right-0 bg-neutral-950/80 px-3 py-2 text-xs text-neutral-300 border-t border-neutral-800 flex justify-between items-center">
+                                    <span>[스크린샷 1] Unity URP 커스텀 쉐이더 및 던전 환경</span>
+                                    <span class="font-mono text-neutral-400">IMG 01</span>
+                                </div>
+                            </div>
+
+                            <!-- 3. 스크린샷 2 -->
+                            <div class="min-w-full h-full relative bg-neutral-900">
+                                <img src="https://placehold.co/1280x720/262626/ffffff?text=Screenshot+02:+Skill+Tree+UI" alt="스킬 트리 UI 스크린샷" class="w-full h-full object-cover" />
+                                <div class="absolute bottom-0 left-0 right-0 bg-neutral-950/80 px-3 py-2 text-xs text-neutral-300 border-t border-neutral-800 flex justify-between items-center">
+                                    <span>[스크린샷 2] 노드 기반 스킬 트리 & ScriptableObject 데이터 바인딩</span>
+                                    <span class="font-mono text-neutral-400">IMG 02</span>
+                                </div>
+                            </div>
+
+                            <!-- 4. 스크린샷 3 -->
+                            <div class="min-w-full h-full relative bg-neutral-900">
+                                <img src="https://placehold.co/1280x720/404040/ffffff?text=Screenshot+03:+Inventory+DB" alt="인벤토리 DB 스크린샷" class="w-full h-full object-cover" />
+                                <div class="absolute bottom-0 left-0 right-0 bg-neutral-950/80 px-3 py-2 text-xs text-neutral-300 border-t border-neutral-800 flex justify-between items-center">
+                                    <span>[스크린샷 3] SQLite 인벤토리 트랜잭션 및 아이템 드래그 드롭</span>
+                                    <span class="font-mono text-neutral-400">IMG 03</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 요약 및 불릿 포인트 성과 (핵심 구현 & 해결 문제) -->
+                <div class="space-y-4 text-xs sm:text-sm text-neutral-700 leading-relaxed pt-2">
+                    <p class="font-medium text-neutral-900 text-sm sm:text-base">
+                        2개월 집중 개발 스프린트를 통해 완성된 액션 RPG 프로젝트로, 단순 프로토타입을 넘어 프레임 방어 및 데이터 무결성 구조를 검증했습니다.
+                    </p>
+                    <ul class="space-y-3 text-neutral-600 list-disc list-inside">
+                        <li>
+                            <strong class="text-neutral-900">오브젝트 풀링 & GC Alloc 0% 달성</strong>
+                            <p class="pl-4 pt-1 text-neutral-500">반복 생성되는 탄환, 투사체 및 타격 파티클에 제네릭 풀러(<code class="font-mono text-xs">GenericObjectPool&lt;T&gt;</code>)를 적용하여 전투 도중 가비지 컬렉터(GC) 스파이크 및 프레임 드랍을 원천 차단했습니다.</p>
+                        </li>
+                        <li>
+                            <strong class="text-neutral-900">FSM 기반 적 AI 상태 패턴 분리</strong>
+                            <p class="pl-4 pt-1 text-neutral-500">Idle / Chase / Attack / Hit 등 각 행동 단위를 독립적인 상태 클래스로 추상화하여, 기존 switch-case 구조의 복잡도를 제거하고 신규 패턴 몬스터 추가 공수를 40% 이상 단축했습니다.</p>
+                        </li>
+                        <li>
+                            <strong class="text-neutral-900">Python 데이터 파이프라인 자동화</strong>
+                            <p class="pl-4 pt-1 text-neutral-500">기획자가 작성한 몬스터 스탯 및 아이템 엑셀/CSV 데이터를 빌드 시 자동으로 Unity ScriptableObject 에셋 및 SQLite 데이터베이스 스키마로 변환하는 스크립트를 제작했습니다.</p>
+                        </li>
+                        <li>
+                            <strong class="text-neutral-900">SQL 트랜잭션 무결성 보장</strong>
+                            <p class="pl-4 pt-1 text-neutral-500">아이템 구매, 인벤토리 이동, 장비 강화 등 다중 쿼리 연산에 SQLite ACID 트랜잭션 처리를 적용하여 연산 중 강제 종료가 발생하더라도 데이터 오염 없이 안전하게 롤백되도록 구현했습니다.</p>
+                        </li>
+                    </ul>
+
+                    <!-- 스택 뱃지 -->
+                    <div class="flex flex-wrap gap-1.5 pt-2">
+                        <span class="px-2 py-0.5 text-xs bg-neutral-100 text-neutral-700">Unity (URP 2022.3)</span>
+                        <span class="px-2 py-0.5 text-xs bg-neutral-100 text-neutral-700">C#</span>
+                        <span class="px-2 py-0.5 text-xs bg-neutral-100 text-neutral-700">Python</span>
+                        <span class="px-2 py-0.5 text-xs bg-neutral-100 text-neutral-700">SQL / SQLite</span>
+                        <span class="px-2 py-0.5 text-xs bg-neutral-100 text-neutral-700">Git / GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 02: 기술 (첨부 이미지 레퍼런스 스타일: 순수 사용 가능한 기술 테이블) -->
+        <section id="skills" class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-16 pb-16 border-b border-neutral-200">
+            <div class="md:col-span-4 space-y-3">
+                <span class="text-xs text-neutral-400 font-mono tracking-wider">02 / TOOLKIT</span>
+                <h3 class="text-2xl font-extrabold text-neutral-950">기술</h3>
+                <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed pt-2">
+                    프로젝트에서 사용한 도구와<br />
+                    실무에서 다룰 수 있는 기술 스택.
+                </p>
+            </div>
+
+            <div class="md:col-span-8">
+                <!-- 기술 스택 가로선 테이블 (레퍼런스 이미지 포맷) -->
+                <div class="border-t border-neutral-200 divide-y divide-neutral-200 text-xs sm:text-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-12 py-4">
+                        <span class="sm:col-span-4 font-semibold text-neutral-900">Game Engine</span>
+                        <span class="sm:col-span-8 text-neutral-600 font-mono text-xs sm:text-sm mt-1 sm:mt-0">Unity (2022.3 LTS) · URP (Universal Render Pipeline) · Cinemachine</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 py-4">
+                        <span class="sm:col-span-4 font-semibold text-neutral-900">Languages</span>
+                        <span class="sm:col-span-8 text-neutral-600 font-mono text-xs sm:text-sm mt-1 sm:mt-0">C# (.NET Core / CLR) · Python 3.x · SQL</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 py-4">
+                        <span class="sm:col-span-4 font-semibold text-neutral-900">Database & Data</span>
+                        <span class="sm:col-span-8 text-neutral-600 font-mono text-xs sm:text-sm mt-1 sm:mt-0">SQLite · ScriptableObject · JSON / CSV Data Parsing</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 py-4">
+                        <span class="sm:col-span-4 font-semibold text-neutral-900">Optimization & Tools</span>
+                        <span class="sm:col-span-8 text-neutral-600 font-mono text-xs sm:text-sm mt-1 sm:mt-0">Unity Profiler · Memory Profiler · Frame Debugger · Object Pooling</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-12 py-4">
+                        <span class="sm:col-span-4 font-semibold text-neutral-900">VCS & Collaboration</span>
+                        <span class="sm:col-span-8 text-neutral-600 font-mono text-xs sm:text-sm mt-1 sm:mt-0">Git · GitHub · Git LFS · Visual Studio 2022 · Notion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 섹션 03: 교육 (첨부 이미지의 04 / LEARNING 형태 준수) -->
+        <section id="education" class="grid grid-cols-1 md:grid-cols-12 gap-8 pt-16 pb-12">
+            <div class="md:col-span-4 space-y-3">
+                <span class="text-xs text-neutral-400 font-mono tracking-wider">03 / LEARNING</span>
+                <h3 class="text-2xl font-extrabold text-neutral-950">교육</h3>
+                <p class="text-xs sm:text-sm text-neutral-500 leading-relaxed pt-2">
+                    배우고, 적용하고,<br />
+                    확장하기.
+                </p>
+            </div>
+
+            <div class="md:col-span-8 space-y-8 text-xs sm:text-sm">
+                <!-- 교육 1 -->
+                <div class="space-y-1.5">
+                    <span class="text-xs font-mono text-neutral-400">2021 — 2025</span>
+                    <h4 class="text-base font-bold text-neutral-950">컴퓨터공학 / 소프트웨어 전공</h4>
+                    <p class="text-neutral-600">학사 졸업 (자료구조, 알고리즘, 컴퓨터 그래픽스, 운영체제 이수)</p>
+                </div>
+
+                <!-- 교육 2 -->
+                <div class="space-y-1.5 border-t border-neutral-100 pt-6">
+                    <span class="text-xs font-mono text-neutral-400">2026.01 — 2026.06</span>
+                    <h4 class="text-base font-bold text-neutral-950">Unity 게임 클라이언트 프로그래밍 과정</h4>
+                    <p class="text-neutral-600">엔진 내부 아키텍처 이해, 렌더링 파이프라인(URP), 3D 수학 및 물리 시뮬레이션 프로젝트 수행</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 하단 푸터 -->
+    <footer class="border-t border-neutral-200 py-8 text-center text-xs text-neutral-400">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <span>© 2026 정기동 (Jung Gidong). All rights reserved.</span>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:kantjgd@gmail.com" class="hover:text-neutral-700">Email</a>
+                <span>/</span>
+                <a href="https://github.com/jrlehd" target="_blank" class="hover:text-neutral-700">GitHub</a>
+                <span>/</span>
+                <a href="#" class="hover:text-neutral-700">Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 복사 완료 알림 레이블 -->
+    <div id="copyNotification" class="fixed bottom-6 right-6 z-50 bg-neutral-950 text-white text-xs px-4 py-2 border border-neutral-800 transition-opacity duration-200 opacity-0 pointer-events-none">
+        복사되었습니다.
+    </div>
+
+    <!-- 스크립트: 슬라이더, 비디오, 클립보드, 스크롤스파이 -->
+    <script>
+        // 새로고침 시 항상 최상단으로 이동
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+
+        // 1. 미디어 슬라이더 로직
+        const sliderTrack = document.getElementById('sliderTrack');
+        const slideCounter = document.getElementById('slideCounter');
+        const totalSlides = 4;
+        let currentSlide = 0;
+
+        const video = document.getElementById('slideVideo');
+        const videoBtn = document.getElementById('videoToggleBtn');
+        const videoStatusText = document.getElementById('videoStatusText');
+
+        function updateSlide() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            slideCounter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+
+            if (currentSlide !== 0 && !video.paused) {
+                video.pause();
+                videoStatusText.innerText = "동영상 재생";
+            }
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
+        });
+
+        if (videoBtn && video) {
+            videoBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    videoStatusText.innerText = "일시정지";
+                } else {
+                    video.pause();
+                    videoStatusText.innerText = "동영상 재생";
+                }
+            });
+        }
+
+        // 2. 복사 기능
+        function showNotification(msg) {
+            const noti = document.getElementById('copyNotification');
+            noti.innerText = msg;
+            noti.classList.remove('opacity-0');
+            noti.classList.add('opacity-100');
+            setTimeout(() => {
+                noti.classList.remove('opacity-100');
+                noti.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        function copyText(elementId, label) {
+            const val = document.getElementById(elementId).innerText.trim();
+            const temp = document.createElement("input");
+            temp.value = val;
+            document.body.appendChild(temp);
+            temp.select();
+            try {
+                document.execCommand('copy');
+                showNotification(`${label}가 클립보드에 복사되었습니다.`);
+            } catch (e) {
+                console.error(e);
+            } finally {
+                document.body.removeChild(temp);
+            }
+        }
+
+        // 3. 스크롤 네비게이션 동기화 (ScrollSpy)
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function highlightNavOnScroll() {
+            const scrollPos = window.scrollY + 100;
+            let currentSectionId = '';
+
+            if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50) {
+                currentSectionId = 'education';
+            } else {
+                sections.forEach(sec => {
+                    const top = sec.offsetTop;
+                    const height = sec.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        currentSectionId = sec.getAttribute('id');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                const target = link.getAttribute('data-target');
+                if (target === currentSectionId) {
+                    link.className = "nav-link text-neutral-950 font-bold border-b-2 border-neutral-950 transition-colors py-1 inline-block";
+                } else {
+                    link.className = "nav-link text-neutral-500 hover:text-neutral-950 font-medium border-b-2 border-transparent transition-colors py-1 inline-block";
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNavOnScroll);
+        window.addEventListener('load', () => {
+            window.scrollTo(0, 0);
+            highlightNavOnScroll();
+        });
+    </script>
+</body>
+</html>
